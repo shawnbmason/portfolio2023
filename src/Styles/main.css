@@ -1,0 +1,219 @@
+body {
+  margin: 0px;
+  width: 100%;
+  height: 100vh;
+  cursor: default;
+}
+
+.quote1 {
+  position: absolute;
+  top: 60px;
+  padding-left: 365px;
+  color: lightBlue;
+  transition: 0.5s ease;
+}
+
+.mainContainer {
+  text-decoration: none;
+  background: linear-gradient(45deg, #07041a 0%, #190f5e 35%, #cf4130 100%);
+  animation: fadeInAnimation ease-in;
+  animation-duration: 1s;
+  width: 100%;
+  height: 100vh;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nextArrowMain {
+  position: absolute;
+  right: 0px;
+  color: #fbefed;
+  font-size: 50px;
+  margin: 20px;
+}
+
+.nextArrowMain:hover {
+  position: absolute;
+  right: 0px;
+  color: #fbefed;
+  font-size: 55px;
+  margin: 20px;
+}
+
+.mainHeader {
+  text-align: center;
+  position: absolute;
+}
+
+.fire,
+.water,
+.earth {
+  color: white;
+  opacity: 50%;
+  font-size: 35px;
+}
+
+.fire:hover {
+  opacity: 100%;
+  color: cornflowerblue;
+}
+
+.water:hover {
+  opacity: 100%;
+  color: cornflowerblue;
+}
+
+.earth:hover {
+  opacity: 100%;
+  color: cornflowerblue;
+}
+
+.socialMediaIcons {
+  display: flex;
+}
+
+.github:hover,
+.linkedin:hover,
+.facebook:hover {
+  opacity: 100%;
+}
+
+.github,
+.linkedin,
+.facebook {
+  opacity: 50%;
+}
+
+.skills {
+  position: absolute;
+  bottom: 0px;
+  right: 70px;
+  opacity: 70%;
+  font-size: 15px;
+  color: white;
+  display: flex;
+  letter-spacing: 2px;
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    transform: translateX(900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-moz-keyframes slideIn {
+  0% {
+    transform: translateX(900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+@-webkit-keyframes slideInTop {
+  0% {
+    transform: translateY(-900px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes slideInTop {
+  0% {
+    transform: translateY(-900px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slideInTop {
+  0% {
+    transform: translateY(-900px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------------------------------------- */
+
+@-webkit-keyframes slideInBottom {
+  0% {
+    transform: translateY(900px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes slideInBottom {
+  0% {
+    transform: translateY(900px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(900px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.shawn {
+  -webkit-animation: slideIn 2s forwards;
+  -moz-animation: slideIn 2s forwards;
+  animation: slideIn 2s forwards;
+}
+
+.mason {
+  -webkit-animation: slideIn 2.5s forwards;
+  -moz-animation: slideIn 2.5s forwards;
+  animation: slideIn 2.5s forwards;
+}
+
+.navbarMain1 {
+  -webkit-animation: slideIn 1s forwards;
+  -moz-animation: slideIn 1s forwards;
+  animation: slideIn 1s forwards;
+}
+
+.quote1 {
+  -webkit-animation: slideInTop 3s forwards;
+  -moz-animation: slideInTop 3s forwards;
+  animation: slideInTop 3s forwards;
+}
+
+.logo {
+  -webkit-animation: slideInTop 1.5s forwards;
+  -moz-animation: slideInTop 1.5s forwards;
+  animation: slideInTop 1.5s forwards;
+}
+
+.circle {
+  -webkit-animation: slideInTop 1s forwards;
+  -moz-animation: slideInTop 1s forwards;
+  animation: slideInTop 1s forwards;
+}
+
+.oh {
+  -webkit-animation: slideInBottom 2s forwards;
+  -moz-animation: slideInBottom 2s forwards;
+  animation: slideInBottom 2s forwards;
+}

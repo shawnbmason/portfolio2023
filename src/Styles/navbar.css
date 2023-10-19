@@ -1,0 +1,33 @@
+.dropdown-content:hover {
+  opacity: 100%;
+}
+
+.main:hover {
+  opacity: 100%;
+}
+
+.about:hover {
+  opacity: 100%;
+}
+
+.projects1:hover {
+  opacity: 100%;
+}
+
+.social:hover {
+  opacity: 100%;
+}
+
+.menu:hover {
+  opacity: 100%;
+}
+
+.menu,
+.main,
+.about,
+.projects1,
+.social {
+  opacity: 50%;
+  margin: 0px;
+  padding: 0px;
+}

@@ -1,0 +1,138 @@
+body {
+  margin: 0px;
+  width: 100%;
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    transform: translateX(900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-moz-keyframes slideIn {
+  0% {
+    transform: translateX(900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.socialContainer {
+  animation: fadeInAnimation ease-in;
+  animation-duration: 1s;
+  color: whitesmoke;
+  width: 100%;
+  height: 100vh;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nextArrowSocial {
+  position: absolute;
+  left: 0px;
+  color: #fbefed;
+  font-size: 50px;
+  margin: 20px;
+}
+
+.nextArrowSocial:hover {
+  position: absolute;
+  left: 0px;
+  color: #fbefed;
+  font-size: 55px;
+  margin: 20px;
+}
+
+.socialHeader {
+  justify-content: center;
+  position: absolute;
+  display: grid;
+  width: 600px;
+  height: 500px;
+  border-radius: 5px;
+  background-color: #5e54ca;
+  box-shadow: 0 0 1em 2em rgba(0, 0, 0, 0.2);
+  -webkit-animation: slideIn 2s forwards;
+  -moz-animation: slideIn 2s forwards;
+  animation: slideIn 2s forwards;
+}
+
+input::placeholder {
+  color: whitesmoke;
+  opacity: 0.5;
+}
+
+textarea::placeholder {
+  color: whitesmoke;
+  opacity: 0.5;
+}
+
+.sendMessageButton {
+  margin-bottom: 25px;
+  width: 150px;
+  height: 38px;
+  font-size: 15px;
+  border-radius: 50px;
+  border: 0px;
+  font-weight: bolder;
+  opacity: 100%;
+  letter-spacing: 1px;
+  position: absolute;
+  bottom: 0px;
+  left: 86px;
+  transition-duration: 0.5s;
+}
+
+.sendMessageButton:hover {
+  position: absolute;
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.name {
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px #5e54ca,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.email {
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px #5e54ca,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.message {
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px #5e54ca,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+button {
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px #5e54ca,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.ohSocialPage {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 7px;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.ohSocialPage:hover {
+  cursor: help;
+}
