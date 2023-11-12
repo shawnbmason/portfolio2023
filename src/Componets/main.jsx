@@ -13,8 +13,9 @@ import {
   faGithub,
   faReact,
   faPython,
-  faHTML5Logo,
-  faJava
+  faCss3Alt,
+  faHtml5,
+  faSquareJs,
 } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect, useCallback } from "react";
@@ -403,26 +404,25 @@ export default function Main() {
           Skills:
         </p>
         <p style={{ padding: "10px", color: "#4189E0" }}>
-          Pyt<span style={{ color: "#FFDC19" }}>hon</span>
+          Pyt<span style={{ color: "#FFDC19" }}>hon </span>
           <FontAwesomeIcon icon={faPython} style={{ color: "#FFDC19" }} />
         </p>
 
         <p style={{ padding: "10px", color: "#E34C26" }}>
-          HTML <FontAwesomeIcon icon={faHTML5Logo} />
+          HTML <FontAwesomeIcon icon={faHtml5} />
         </p>
 
         <p style={{ padding: "10px", color: "#264de4" }}>
-          C<span style={{ color: "#2965f1" }}>SS</span>
-          <FontAwesomeIcon icon={faAlternateCSS3Logo} />
+          C<span style={{ color: "#2965f1" }}>SS </span>
+          <FontAwesomeIcon icon={faCss3Alt} />
         </p>
 
         <p style={{ padding: "10px", color: "#F0DB4F" }}>
-          JavaScript <FontAwesomeIcon icon={faJava} />
+          JavaScript <FontAwesomeIcon icon={faSquareJs} />
         </p>
 
         <p style={{ padding: "10px", color: "#88dded" }}>
-          React.js
-          <FontAwesomeIcon icon={faReact} />
+          React.js <FontAwesomeIcon icon={faReact} />
         </p>
 
         <p style={{ padding: "10px", color: "#93ea15" }}>
