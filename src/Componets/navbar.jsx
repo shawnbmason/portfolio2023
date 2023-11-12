@@ -4,6 +4,7 @@ import autoAnimate from "@formkit/auto-animate";
 import { Link } from "react-router-dom";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import AnimatedCursor from "react-animated-cursor"
 
 export default function Navbar() {
   /////////////////////////////////////////////👇 This section shows and hides div//////////////////////////////////////////////////////////////
@@ -42,6 +43,16 @@ export default function Navbar() {
       }}
       ref={parent}
     >
+
+      <AnimatedCursor
+        innerSize={8}
+        outerSize={8}
+        color='255, 255, 255'
+        outerAlpha={0.2}
+        innerScale={0.7}
+        outerScale={5}
+      />
+
       {/* 👇 onClick handler for arrow rotation */}
       <div onClick={handleClick}>
         {/* 👇 onClick that reveals navbar */}

@@ -29,6 +29,7 @@ body {
 }
 
 .socialContainer {
+  cursor: none;
   animation: fadeInAnimation ease-in;
   animation-duration: 1s;
   color: whitesmoke;

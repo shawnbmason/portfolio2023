@@ -20,6 +20,7 @@ import {
 import { Link } from "react-router-dom";
 import React, { useState, useEffect, useCallback } from "react";
 import { easeInOut } from "framer-motion";
+import AnimatedCursor from "react-animated-cursor"
 
 const firstQuote = [
   {
@@ -188,6 +189,16 @@ export default function Main() {
 
   return (
     <div className="mainContainer">
+
+      <AnimatedCursor
+        innerSize={8}
+        outerSize={8}
+        color='255, 255, 255'
+        outerAlpha={0.2}
+        innerScale={0.7}
+        outerScale={5}
+      />
+
       <div
         className="navbarMain1"
         style={{

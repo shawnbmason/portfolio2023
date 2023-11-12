@@ -3,6 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import AnimatedCursor from "react-animated-cursor"
 
 const boxVariant = {
   visible: {
@@ -52,6 +53,16 @@ export default function Oh() {
 
   return (
     <div className="ohPage">
+
+     <AnimatedCursor
+        innerSize={8}
+        outerSize={8}
+        color='255, 255, 255'
+        outerAlpha={0.2}
+        innerScale={0.7}
+        outerScale={5}
+      />
+      
       <motion.div animate={{ x: 0 }} initial={{ x: -900 }}>
         <h1 className="ohHeader" style={{ color: "white", fontSize: "50px" }}>
           The Crew
