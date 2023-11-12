@@ -4,6 +4,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Navbar from "./navbar.jsx";
 import React, { useState } from "react";
+import AnimatedCursor from "react-animated-cursor"
 
 export default function Social() {
   const [bgColor, setBgColor] = useState(
@@ -17,6 +18,16 @@ export default function Social() {
 
   return (
     <div className="socialContainer" style={socialBackground}>
+
+      <AnimatedCursor
+        innerSize={8}
+        outerSize={8}
+        color='255, 255, 255'
+        outerAlpha={0.2}
+        innerScale={0.7}
+        outerScale={5}
+      />
+
       <Navbar />
 
       <div className="socialHeader">

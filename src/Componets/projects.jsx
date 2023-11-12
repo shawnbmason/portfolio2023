@@ -3,10 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Navbar from "./navbar.jsx";
+import AnimatedCursor from "react-animated-cursor"
 
 export default function About() {
   return (
     <div className="projectsContainer">
+
+    <AnimatedCursor
+        innerSize={8}
+        outerSize={8}
+        color='255, 255, 255'
+        outerAlpha={0.2}
+        innerScale={0.7}
+        outerScale={5}
+      />
+
       <Navbar />
       <Link to="/about" className="backArrowProjects">
         <FontAwesomeIcon icon={faArrowLeft} />
