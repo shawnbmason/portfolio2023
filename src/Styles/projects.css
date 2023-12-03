@@ -1,7 +1,7 @@
 body {
   margin: 0px;
   width: 100%;
-  background-color: #07041a;
+  background: linear-gradient(-45deg, #cf4130 0%, #190f5e 65%, #07041a 100%);
 }
 
 @-webkit-keyframes slideIn {
@@ -167,7 +167,7 @@ body {
 .projectOne {
   cursor: pointer;
   grid-area: a;
-  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg-new.cgtrader.com%2Fitems%2F160480%2Fpaint_splatter_3d_model_5d2328a0-9f14-4a99-b12d-de28a5e6f3ce.jpg&f=1&nofb=1&ipt=4da2d3bbba8a7adb11273de82207c35d0ba7b5db442b8cd4ff27675da586cdb9&ipo=images");
+  background-image: url(/pictures/backstage_talk_pro.png);
   transition: 0.3s ease-in;
   width: 350px;
   height: 250px;
@@ -206,8 +206,7 @@ p {
 .projectTwo {
   cursor: pointer;
   grid-area: b;
-  /* background-image: url(images/projectTwo.png); */
-  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg-new.cgtrader.com%2Fitems%2F160480%2Fpaint_splatter_3d_model_5d2328a0-9f14-4a99-b12d-de28a5e6f3ce.jpg&f=1&nofb=1&ipt=4da2d3bbba8a7adb11273de82207c35d0ba7b5db442b8cd4ff27675da586cdb9&ipo=images");
+  background-image: url(/pictures/monogram_pro.png);
   transition: 0.3s ease-in;
   width: 350px;
   height: 250px;
@@ -241,7 +240,7 @@ p {
 .projectThree {
   cursor: pointer;
   grid-area: c;
-  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg-new.cgtrader.com%2Fitems%2F160480%2Fpaint_splatter_3d_model_5d2328a0-9f14-4a99-b12d-de28a5e6f3ce.jpg&f=1&nofb=1&ipt=4da2d3bbba8a7adb11273de82207c35d0ba7b5db442b8cd4ff27675da586cdb9&ipo=images");
+  background-image: url(/pictures/chill_pro.png);
   transition: 0.3s ease-in;
   width: 350px;
   height: 250px;
@@ -393,5 +392,17 @@ p {
   .projectFour {
     width: 250px;
     height: 150px;
+  }
+
+  .pOne,
+  .pTwo,
+  .pThree,
+  .pFour {
+    width: 245px;
+    height: 150px;
+    position: absolute;
+    left: 28%;
+    right: 50%;
+    font-size: 52%;
   }
 }

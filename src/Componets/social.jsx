@@ -4,7 +4,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Navbar from "./navbar.jsx";
 import React, { useState } from "react";
-import AnimatedCursor from "react-animated-cursor"
+import AnimatedCursor from "react-animated-cursor";
 
 export default function Social() {
   const [bgColor, setBgColor] = useState(
@@ -13,16 +13,15 @@ export default function Social() {
 
   const socialBackground = {
     background: `${bgColor}`,
-    transition: "0.8s ease"
+    transition: "0.8s ease",
   };
 
   return (
     <div className="socialContainer" style={socialBackground}>
-
       <AnimatedCursor
         innerSize={8}
         outerSize={8}
-        color='255, 255, 255'
+        color="255, 255, 255"
         outerAlpha={0.2}
         innerScale={0.7}
         outerScale={5}
@@ -37,7 +36,7 @@ export default function Social() {
             display: "flex",
             justifyContent: "space-between",
             fontSize: "8px",
-            margin: "10px"
+            margin: "10px",
           }}
         >
           <div style={{ display: "grid" }}>
@@ -64,7 +63,7 @@ export default function Social() {
             backgroundColor: "#392f9a",
             border: "0px",
             opacity: "0.8",
-            fontSize: "18px"
+            fontSize: "18px",
           }}
         />
         <input
@@ -82,7 +81,7 @@ export default function Social() {
             border: "0px",
             opacity: "0.8",
             padding: "1px 15px 1px 15px",
-            fontSize: "18px"
+            fontSize: "18px",
           }}
         />
         <textarea
@@ -103,7 +102,7 @@ export default function Social() {
             border: "0px",
             opacity: "0.8",
             fontSize: "18px",
-            marginBottom: "65px"
+            marginBottom: "65px",
           }}
         />
 

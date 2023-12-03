@@ -3,16 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Navbar from "./navbar.jsx";
-import AnimatedCursor from "react-animated-cursor"
+import AnimatedCursor from "react-animated-cursor";
 
 export default function About() {
   return (
     <div className="aboutContainer">
-
       <AnimatedCursor
         innerSize={8}
         outerSize={8}
-        color='255, 255, 255'
+        color="255, 255, 255"
         outerAlpha={0.2}
         innerScale={0.7}
         outerScale={5}
@@ -28,12 +27,6 @@ export default function About() {
         <img
           alt="profile"
           src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.PlUghRkXvx9eqZvManVhsgHaIS%26pid%3DApi&f=1&ipt=eda996daadd44ad250fea02727a03f670d679703e90745968e3b583fa0955024&ipo=images"
-          style={{
-            width: "70%",
-            height: "60%",
-            textDecoration: "none",
-            borderRadius: "15px"
-          }}
         />
       </div>
 
@@ -50,7 +43,7 @@ export default function About() {
                 fontSize: "2vh",
                 lineHeight: "20px",
                 letterSpacing: "2px",
-                fontFamily: "Rubik, sans-serif"
+                fontFamily: "Rubik, sans-serif",
               }}
             >
               My passon for building things, tearing things apart to see how it
@@ -68,7 +61,7 @@ export default function About() {
                 fontSize: "2vh",
                 lineHeight: "20px",
                 letterSpacing: "2px",
-                fontFamily: "Rubik, sans-serif"
+                fontFamily: "Rubik, sans-serif",
               }}
             >
               Outside of the office and away from the computer, I'm commited to

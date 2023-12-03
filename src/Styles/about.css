@@ -1,6 +1,7 @@
 body {
   margin: 0px;
   width: 100%;
+  background-repeat: no-repeat;
 }
 
 @-webkit-keyframes slideIn {
@@ -56,6 +57,7 @@ body {
 }
 
 .aboutContainer {
+  background-repeat: no-repeat;
   background: linear-gradient(45deg, #07041a 0%, #190f5e 35%, #cf4130 100%);
   color: #fbefed;
   text-decoration: none;
@@ -64,7 +66,7 @@ body {
   width: 100%;
   height: 100vh;
   margin: 0px;
-  display: flex;
+  display: grid;
   align-items: center;
   overflow: auto;
 }
@@ -99,10 +101,11 @@ body {
 
 .aboutHeader {
   position: absolute;
+  top: 0px;
   right: 6%;
   margin-top: 5%;
   margin-bottom: 5%;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   height: 90vh;
@@ -110,12 +113,13 @@ body {
 }
 
 .aboutPicture {
-  position: absolute;
-  display: flex;
+  height: 100vh;
+  width: 38vw;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 38%;
+  display: flex;
+  box-shadow: 0 0 1em 1em rgba(0, 0, 0, 0.2);
   background: #07041a;
   -webkit-animation: slideInRight 2s forwards;
   -moz-animation: slideInRight 2s forwards;
@@ -123,6 +127,8 @@ body {
 }
 
 .aboutHeader .page {
+  position: absolute;
+  top: 10px;
   border-style: double;
   border-width: 5px;
   border-radius: 15px;
@@ -170,4 +176,48 @@ body {
   rotate: 90deg;
   z-index: 4;
   font-size: 2vh;
+}
+
+.aboutPicture img {
+  width: 70%;
+  height: 60%;
+  text-decoration: none;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 1200px) {
+  .aboutPicture img {
+    width: 50%;
+    height: 30%;
+  }
+
+  .aboutPicture {
+    margin: 50px;
+    width: 500px;
+    height: 600px;
+  }
+
+  .aboutContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .aboutHeader {
+    position: absolute;
+    top: 800px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 80%;
+    right: 10%;
+  }
+
+  .nextArrowAbout,
+  .backArrowAbout {
+    position: fixed;
+  }
 }
