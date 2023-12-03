@@ -4,7 +4,7 @@ import autoAnimate from "@formkit/auto-animate";
 import { Link } from "react-router-dom";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import AnimatedCursor from "react-animated-cursor"
+import AnimatedCursor from "react-animated-cursor";
 
 export default function Navbar() {
   /////////////////////////////////////////////👇 This section shows and hides div//////////////////////////////////////////////////////////////
@@ -39,15 +39,14 @@ export default function Navbar() {
         position: "fixed",
         right: "0px",
         top: "0px",
-        zIndex: "2"
+        zIndex: "2",
       }}
       ref={parent}
     >
-
       <AnimatedCursor
         innerSize={8}
         outerSize={8}
-        color='255, 255, 255'
+        color="255, 255, 255"
         outerAlpha={0.2}
         innerScale={0.7}
         outerScale={5}
@@ -63,7 +62,7 @@ export default function Navbar() {
             // 👇 style rotation for arrow using hooks
             style={{
               transform: flipArrow ? "rotate(180deg)" : "",
-              transition: flipArrow ? "ease-in .2s" : "ease-in .2s"
+              transition: flipArrow ? "ease-in .2s" : "ease-in .2s",
             }}
           />
         </strong>
@@ -77,7 +76,7 @@ export default function Navbar() {
             borderRadius: "5px",
             border: "solid 1px rgba(255, 255, 255, .2)",
             display: "grid",
-            margin: "5px"
+            margin: "5px",
           }}
           className="dropdown-content"
         >
@@ -85,7 +84,7 @@ export default function Navbar() {
             style={{
               color: "#ffff",
               margin: "15px",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
             to="/"
           >
@@ -104,7 +103,7 @@ export default function Navbar() {
             style={{
               color: "#ffff",
               marginBottom: "15px",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
             to="/social"
           >

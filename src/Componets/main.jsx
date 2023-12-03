@@ -4,7 +4,7 @@ import {
   faArrowRight,
   faGem,
   faCode,
-  faAlternateCSS3Logo
+  faAlternateCSS3Logo,
 } from "@fortawesome/free-solid-svg-icons";
 import {} from "@fortawesome/free-brands-svg-icons";
 import {
@@ -20,7 +20,7 @@ import {
 import { Link } from "react-router-dom";
 import React, { useState, useEffect, useCallback } from "react";
 import { easeInOut } from "framer-motion";
-import AnimatedCursor from "react-animated-cursor"
+import AnimatedCursor from "react-animated-cursor";
 
 const firstQuote = [
   {
@@ -31,15 +31,15 @@ const firstQuote = [
             opacity: "50%",
             fontSize: "20px",
             width: "350px",
-            transition: "0.5s ease"
+            transition: "0.5s ease",
           }}
         >
           The inner fire is the most important thing mankind prossesses.
         </p>
         <p>Edith Sodergran</p>{" "}
       </div>
-    )
-  }
+    ),
+  },
 ];
 
 const quotes = [
@@ -51,14 +51,14 @@ const quotes = [
             opacity: "50%",
             fontSize: "20px",
             width: "350px",
-            transition: "0.5s ease"
+            transition: "0.5s ease",
           }}
         >
           The inner fire is the most important thing mankind prossesses.
         </p>
         <p>Edith Sodergran</p>{" "}
       </div>
-    )
+    ),
   },
   {
     quote: (
@@ -68,7 +68,7 @@ const quotes = [
             opacity: "50%",
             fontSize: "20px",
             width: "350px",
-            transition: "0.5s ease"
+            transition: "0.5s ease",
           }}
         >
           I must not fear. Fear is the mind-killer. Fear is the little-death
@@ -76,7 +76,7 @@ const quotes = [
         </p>
         <p>Frank Herbert, Dune</p>{" "}
       </div>
-    )
+    ),
   },
   {
     quote: (
@@ -86,7 +86,7 @@ const quotes = [
             opacity: "50%",
             fontSize: "20px",
             width: "350px",
-            transition: "0.5s ease"
+            transition: "0.5s ease",
           }}
         >
           Life is like riding a bike. To keep your balance, you must keep
@@ -94,7 +94,7 @@ const quotes = [
         </p>
         <p>Albert Einstein</p>{" "}
       </div>
-    )
+    ),
   },
   {
     quote: (
@@ -104,7 +104,7 @@ const quotes = [
             opacity: "50%",
             fontSize: "20px",
             width: "350px",
-            transition: "0.5s ease"
+            transition: "0.5s ease",
           }}
         >
           Success is a lousy teacher. It seduces smart people into thinking they
@@ -113,7 +113,7 @@ const quotes = [
         <p>Bill Gates</p>
         {""}
       </div>
-    )
+    ),
   },
   {
     quote: (
@@ -123,7 +123,7 @@ const quotes = [
             opacity: "50%",
             fontSize: "20px",
             width: "350px",
-            transition: "0.5s ease"
+            transition: "0.5s ease",
           }}
         >
           Our greatest weakness lies in giving up. The most certain way to
@@ -131,7 +131,7 @@ const quotes = [
         </p>
         <p>Thomas A Edison</p>{" "}
       </div>
-    )
+    ),
   },
   {
     quote: (
@@ -141,7 +141,7 @@ const quotes = [
             opacity: "50%",
             fontSize: "20px",
             width: "350px",
-            transition: "0.5s ease"
+            transition: "0.5s ease",
           }}
         >
           Great minds discuss ideas; average minds discuss events; small minds
@@ -149,7 +149,7 @@ const quotes = [
         </p>
         <p>Eleanor Roosevelt</p>{" "}
       </div>
-    )
+    ),
   },
   {
     quote: (
@@ -159,7 +159,7 @@ const quotes = [
             opacity: "50%",
             fontSize: "20px",
             width: "350px",
-            transition: "0.5s ease"
+            transition: "0.5s ease",
           }}
         >
           The only way to do great work is to love what you do. If you haven't
@@ -167,8 +167,8 @@ const quotes = [
         </p>
         <p>Steve Jobs</p>{" "}
       </div>
-    )
-  }
+    ),
+  },
 ];
 
 const firstQut = firstQuote.map(({ quote }) => quote);
@@ -189,11 +189,10 @@ export default function Main() {
 
   return (
     <div className="mainContainer">
-
       <AnimatedCursor
         innerSize={8}
         outerSize={8}
-        color='255, 255, 255'
+        color="255, 255, 255"
         outerAlpha={0.2}
         innerScale={0.7}
         outerScale={5}
@@ -211,7 +210,7 @@ export default function Main() {
           zIndex: "1",
           paddingLeft: "55px",
           paddingTop: "10px",
-          color: "white"
+          color: "white",
         }}
       >
         {" "}
@@ -219,7 +218,7 @@ export default function Main() {
         <div
           style={{
             display: "grid",
-            paddingTop: "30px"
+            paddingTop: "30px",
           }}
         >
           <Link
@@ -227,7 +226,7 @@ export default function Main() {
             className="fire"
             style={{
               cursor: "pointer",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
             About
@@ -238,7 +237,7 @@ export default function Main() {
             style={{
               cursor: "pointer",
               textDecoration: "none",
-              padding: "25px 0px 25px 0px"
+              padding: "25px 0px 25px 0px",
             }}
           >
             Projects
@@ -248,7 +247,7 @@ export default function Main() {
             className="earth"
             style={{
               cursor: "pointer",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
             Contact Me!
@@ -258,7 +257,7 @@ export default function Main() {
           style={{
             position: "absolute",
             top: "275px",
-            bottom: "150px"
+            bottom: "150px",
           }}
         >
           <p style={{ paddingBottom: "15px", paddingTop: "60px" }}>
@@ -270,7 +269,7 @@ export default function Main() {
           className="socialMediaIcons"
           style={{
             position: "absolute",
-            bottom: "55px"
+            bottom: "55px",
           }}
         >
           <a href="https://github.com/shawnbmason" className="github">
@@ -286,7 +285,7 @@ export default function Main() {
               style={{
                 padding: "0px 115px 0px 115px",
                 color: "#0077b5",
-                fontSize: "30px"
+                fontSize: "30px",
               }}
             />
           </a>
@@ -307,7 +306,7 @@ export default function Main() {
             width: "35px",
             height: "5px",
             backgroundColor: "cornflowerblue",
-            margin: "0px"
+            margin: "0px",
           }}
         ></div>
       </div>
@@ -320,7 +319,7 @@ export default function Main() {
             fontWeight: "bolder",
             color: "white",
             margin: "0px",
-            height: "98px"
+            height: "98px",
           }}
         >
           SHAWN
@@ -333,7 +332,7 @@ export default function Main() {
             color: "white",
             opacity: "50%",
             margin: "0px",
-            paddingLeft: "65px"
+            paddingLeft: "65px",
           }}
         >
           MASON
@@ -353,7 +352,7 @@ export default function Main() {
               width: "15px",
               display: "flex",
               justifyContent: "center",
-              textAlign: "center"
+              textAlign: "center",
             }}
           >
             Oh what's this...
@@ -373,7 +372,7 @@ export default function Main() {
           position: "absolute",
           top: "15px",
           right: "100px",
-          opacity: "20%"
+          opacity: "20%",
         }}
       >
         <p>S</p>
@@ -382,7 +381,7 @@ export default function Main() {
             position: "absolute",
             top: "20px",
             left: "30px",
-            fontSize: "20px"
+            fontSize: "20px",
           }}
         >
           B
@@ -400,7 +399,7 @@ export default function Main() {
           height: "72px",
           width: "72px",
           opacity: "20%",
-          borderRadius: "50px"
+          borderRadius: "50px",
         }}
       ></div>
 
@@ -409,7 +408,7 @@ export default function Main() {
           style={{
             padding: "10px",
             color: "#38FCD0",
-            textDecoration: "underline"
+            textDecoration: "underline",
           }}
         >
           Skills:

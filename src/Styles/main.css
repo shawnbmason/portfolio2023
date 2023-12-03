@@ -15,6 +15,7 @@ body {
 
 .mainContainer {
   text-decoration: none;
+  background-repeat: no-repeat;
   background: linear-gradient(45deg, #07041a 0%, #190f5e 35%, #cf4130 100%);
   animation: fadeInAnimation ease-in;
   animation-duration: 1s;
