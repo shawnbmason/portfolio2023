@@ -84,9 +84,10 @@ textarea::placeholder {
 
 .sendMessageButton {
   margin-bottom: 25px;
-  width: 150px;
-  height: 38px;
-  font-size: 15px;
+  background-color: cornflowerblue;
+  width: 60px;
+  height: 40px;
+  font-size: 12px;
   border-radius: 50px;
   border: 0px;
   font-weight: bolder;
@@ -94,8 +95,10 @@ textarea::placeholder {
   letter-spacing: 1px;
   position: absolute;
   bottom: 0px;
-  left: 86px;
+  right: 0px;
+  color: white;
   transition-duration: 0.5s;
+  text-transform: uppercase;
 }
 
 .sendMessageButton:hover {
