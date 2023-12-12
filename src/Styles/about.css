@@ -1,53 +1,20 @@
-body {
-  margin: 0px;
-  width: 100%;
-  background-repeat: no-repeat;
-}
-
-@-webkit-keyframes slideIn {
-  0% {
-    transform: translateX(900px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@-moz-keyframes slideIn {
-  0% {
-    transform: translateX(900px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes slideIn {
-  0% {
-    transform: translateX(900px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* ---------------------------------------------------------------------------------------------------------------------------- */
-
-@-webkit-keyframes slideInRight {
+@-webkit-keyframes slideInAbout {
   0% {
     transform: translateX(-900px);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(0px);
   }
 }
-@-moz-keyframes slideInRight {
+@-moz-keyframes slideInAbout {
   0% {
     transform: translateX(-900px);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(0px);
   }
 }
-@keyframes slideInRight {
+@keyframes slideInAbout {
   0% {
     transform: translateX(-900px);
   }
@@ -56,19 +23,83 @@ body {
   }
 }
 
+/* ---------------------------------------------------------------------------------------------------------------------------- */
+
+@-webkit-keyframes slideInRight {
+  0% {
+    transform: translateX(900px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@-moz-keyframes slideInRight {
+  0% {
+    transform: translateX(900px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes slideInRight {
+  0% {
+    transform: translateX(900px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------- */
+
+@-webkit-keyframes slideInUp {
+  0% {
+    transform: translateY(-900px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes slideInUp {
+  0% {
+    transform: translateY(-900px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes slideInUp {
+  0% {
+    transform: translateY(-900px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------- */
+
 .aboutContainer {
-  background-repeat: no-repeat;
-  background: linear-gradient(45deg, #07041a 0%, #190f5e 35%, #cf4130 100%);
   color: #fbefed;
-  text-decoration: none;
   animation: fadeInAnimation ease-in;
   animation-duration: 1s;
-  width: 100%;
-  height: 100vh;
-  margin: 0px;
-  display: grid;
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  overflow: auto;
+  height: 100%;
+  overflow: hidden;
+}
+
+.aboutAll {
+  height: 100vh;
+  color: #fbefed;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+  background-size: 100%;
+  background: linear-gradient(-45deg, #cf4130 0%, #190f5e 65%, #07041a 100%);
 }
 
 .nextArrowAbout {
@@ -99,41 +130,29 @@ body {
   font-size: 55px;
 }
 
-.aboutHeader {
-  position: absolute;
-  top: 0px;
-  right: 6%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  width: 45%;
-}
-
 .aboutPicture {
-  height: 100vh;
-  width: 38vw;
-  border-radius: 10px;
+  height: 450px;
+  width: 450px;
+  border-radius: 50%;
   justify-content: center;
   align-items: center;
   display: flex;
   box-shadow: 0 0 1em 1em rgba(0, 0, 0, 0.2);
-  background: #07041a;
+  background-image: url(/pictures/picture_of_me.JPG);
+  background-size: cover;
   -webkit-animation: slideInRight 2s forwards;
   -moz-animation: slideInRight 2s forwards;
   animation: slideInRight 2s forwards;
 }
 
-.aboutHeader .page {
-  position: absolute;
-  top: 10px;
-  border-style: double;
-  border-width: 5px;
+.page {
+  display: grid;
+  width: 43%;
+  height: 80%;
+  font-size: 3vh;
+  font-family: "Rubik", sans-serif;
+  border: 5px double;
   border-radius: 15px;
-  height: 95%;
-  width: 95%;
   opacity: 90%;
   z-index: 1;
   -webkit-animation: slideIn 2s forwards;
@@ -141,10 +160,8 @@ body {
   animation: slideIn 2s forwards;
 }
 
-.aboutHeader .page .pageInner {
-  position: relative;
-  top: 10%;
-  padding: 0px 15px 0px 15px;
+.page .pageInner {
+  padding: 0px 15px 15px 15px;
 }
 
 .pageName {
@@ -153,18 +170,12 @@ body {
   font-family: "Rubik", sans-serif;
 }
 
-.pageHeader {
-  font-size: 3vh;
-  font-family: "Rubik", sans-serif;
-}
-
-.aboutHeader .page .about {
-  margin-top: 10px;
+.page .about {
+  text-align: center;
   font-size: 6vh;
   color: #fbefed;
-  text-align: center;
-  height: 30px;
-  width: 500px;
+  height: 50px;
+  width: 100%;
 }
 
 .date {
@@ -178,29 +189,24 @@ body {
   font-size: 2vh;
 }
 
-.aboutPicture img {
-  width: 70%;
-  height: 60%;
-  text-decoration: none;
-  border-radius: 15px;
-}
-
 @media screen and (max-width: 1200px) {
-  .aboutPicture img {
-    width: 50%;
-    height: 30%;
+  .aboutContainer {
+    display: grid;
+    justify-items: center;
+    overflow: visible;
   }
 
   .aboutPicture {
-    margin: 50px;
-    width: 500px;
-    height: 600px;
+    margin: 50px 0px 80px 0px;
+    -webkit-animation: slideInUp 2s forwards;
+    -moz-animation: slideInUp 2s forwards;
+    animation: slideInUp 2s forwards;
   }
 
-  .aboutContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .aboutAll {
+    display: grid;
+    margin-bottom: 20px;
+    height: 100%;
   }
 
   .aboutHeader {
@@ -219,5 +225,13 @@ body {
   .nextArrowAbout,
   .backArrowAbout {
     position: fixed;
+  }
+
+  .page {
+    width: 70vw;
+    height: 100%;
+    -webkit-animation: slideInAbout 2s forwards;
+    -moz-animation: slideInAbout 2s forwards;
+    animation: slideInAbout 2s forwards;
   }
 }

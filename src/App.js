@@ -5,6 +5,7 @@ import Projects from "./Componets/projects.jsx";
 import Social from "./Componets/social.jsx";
 import Oh from "./Componets/oh.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function App() {
   return (

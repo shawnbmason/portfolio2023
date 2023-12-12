@@ -21,6 +21,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect, useCallback } from "react";
 import { easeInOut } from "framer-motion";
 import AnimatedCursor from "react-animated-cursor";
+import { Helmet } from "react-helmet";
 
 const firstQuote = [
   {
@@ -197,6 +198,11 @@ export default function Main() {
         innerScale={0.7}
         outerScale={5}
       />
+
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home - Shawn B. Mason, Developer</title>
+      </Helmet>
 
       <div
         className="navbarMain1"

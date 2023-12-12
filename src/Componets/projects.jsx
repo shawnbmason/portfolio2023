@@ -4,10 +4,16 @@ import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Navbar from "./navbar.jsx";
 import AnimatedCursor from "react-animated-cursor";
+import { Helmet } from "react-helmet";
 
 export default function About() {
   return (
     <div className="projectsContainer">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Projects - Shawn B. Mason, Developer</title>
+      </Helmet>
+
       <AnimatedCursor
         innerSize={8}
         outerSize={8}
