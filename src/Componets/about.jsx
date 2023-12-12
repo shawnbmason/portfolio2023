@@ -4,40 +4,38 @@ import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Navbar from "./navbar.jsx";
 import AnimatedCursor from "react-animated-cursor";
+import { Helmet } from "react-helmet";
 
 export default function About() {
   return (
-    <div className="aboutContainer">
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={8}
-        color="255, 255, 255"
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
-      />
+    <div className="aboutAll">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>About - Shawn B. Mason, Developer</title>
+      </Helmet>
 
       <Navbar />
-
       <Link className="backArrowAbout" to="/">
         <FontAwesomeIcon icon={faArrowLeft} />
       </Link>
-
-      <div className="aboutPicture">
-        <img
-          alt="profile"
-          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.PlUghRkXvx9eqZvManVhsgHaIS%26pid%3DApi&f=1&ipt=eda996daadd44ad250fea02727a03f670d679703e90745968e3b583fa0955024&ipo=images"
+      <div className="aboutContainer">
+        <AnimatedCursor
+          innerSize={8}
+          outerSize={8}
+          color="255, 255, 255"
+          outerAlpha={0.2}
+          innerScale={0.7}
+          outerScale={5}
         />
-      </div>
 
-      <div className="aboutHeader">
+        <div className="aboutPicture"></div>
+
         <div className="page">
           <p className="date">Mar - 2023</p>
           <h1 className="about">About Me</h1>
           <div className="pageInner">
             {/* <h1 className="pageName">Shawn Mason</h1> */}
             <h1 className="pageHeader">Description</h1>
-
             <p
               style={{
                 fontSize: "2vh",
@@ -74,9 +72,7 @@ export default function About() {
             </p>
           </div>
         </div>
-        <div className="box"></div>
       </div>
-
       <Link className="nextArrowAbout" to="/projects">
         <FontAwesomeIcon icon={faArrowRight} />
       </Link>

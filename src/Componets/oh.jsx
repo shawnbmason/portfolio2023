@@ -4,12 +4,13 @@ import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AnimatedCursor from "react-animated-cursor";
+import { Helmet } from "react-helmet";
 
 const boxVariant = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5 },
+    transition: { duration: 1.5 },
     transform: "translateX(0px)",
   },
   hidden: { opacity: 0, scale: 0, transform: "translateX(50px)" },
@@ -35,6 +36,11 @@ const Box = ({ picture, classname2, classname1, bio }) => {
       animate={control}
     >
       <div className={classname1}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Oh whats this? - Shawn B. Mason, Developer</title>
+        </Helmet>
+
         <div className={classname2}>{picture}</div>
       </div>
 

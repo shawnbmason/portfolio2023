@@ -14,6 +14,7 @@ import {
 import InlineError from "./inlineError.js";
 import { IpAddress } from "../API/API.js";
 import Loading from "./loading.js";
+import { Helmet } from "react-helmet";
 
 export default function Social() {
   const [bgColor, setBgColor] = useState(
@@ -63,6 +64,11 @@ export default function Social() {
         <Loading />
       ) : (
         <>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Contact - Shawn B. Mason, Developer</title>
+          </Helmet>
+
           <AnimatedCursor
             innerSize={8}
             outerSize={8}
