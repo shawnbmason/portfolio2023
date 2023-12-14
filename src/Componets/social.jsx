@@ -79,27 +79,20 @@ export default function Social() {
           />
           <Navbar />
           <div className="socialHeader">
-            <h1 style={{ opacity: "0.8", margin: "0px", paddingTop: "20px" }}>
-              Contact Me
-            </h1>
-            <h2 style={{ padding: "0px", margin: "0px", fontSize: "15px" }}>
+            <h1 className="contactMe">Contact Me</h1>
+            <h2>
               We detected that you are currently in{" "}
               {/* 👇 This checks the API of the person on the sit and will display it (check API.js) */}
               <span style={{ color: "cornflowerblue", fontWeight: "bolder" }}>
                 {/* ({ipData}, {ipDataCity}) */}({ipData})
               </span>
             </h2>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                fontSize: "8px",
-                margin: "10px",
-              }}
-            >
+            <div className="contactInfo">
               <div style={{ display: "grid" }}>
                 <h1 style={{ opacity: "50%", margin: "0px" }}>Phone:</h1>
-                <h1 style={{ margin: "0px" }}>+1(513)-602-0443</h1>
+                <h1 style={{ margin: "0px", paddingRight: "10px" }}>
+                  +1(513)-602-0443
+                </h1>
               </div>
 
               <div style={{ display: "grid" }}>
@@ -116,18 +109,6 @@ export default function Social() {
                 type="text"
                 className="name"
                 placeholder="Name"
-                style={{
-                  borderRadius: "5px",
-                  color: "white",
-                  outline: "none",
-                  height: "40px",
-                  width: "400px",
-                  padding: "1px 15px 1px 15px",
-                  backgroundColor: "#392f9a",
-                  border: "0px",
-                  opacity: "0.8",
-                  fontSize: "18px",
-                }}
               />
 
               {/* 👇 This will display the error message you created for full name in (validation.js) and will use the styling in (inlineError.js)*/}
@@ -144,19 +125,6 @@ export default function Social() {
                 type="email"
                 className="email"
                 placeholder="Email"
-                style={{
-                  borderRadius: "5px",
-                  textAlign: "left",
-                  outline: "none",
-                  color: "white",
-                  height: "40px",
-                  width: "400px",
-                  backgroundColor: "#392f9a",
-                  border: "0px",
-                  opacity: "0.8",
-                  padding: "1px 15px 1px 15px",
-                  fontSize: "18px",
-                }}
               />
 
               {/* 👇 This will display the error message you created for email in (validation.js) and will use the styling in (inlineError.js)*/}
@@ -173,19 +141,6 @@ export default function Social() {
                 type="tel"
                 className="phone"
                 placeholder="Phone number"
-                style={{
-                  borderRadius: "5px",
-                  textAlign: "left",
-                  outline: "none",
-                  color: "white",
-                  height: "40px",
-                  width: "400px",
-                  backgroundColor: "#392f9a",
-                  border: "0px",
-                  opacity: "0.8",
-                  padding: "1px 15px 1px 15px",
-                  fontSize: "18px",
-                }}
               />
 
               {/* 👇 This will display the error message you created for phone number in (validation.js) and will use the styling in (inlineError.js)*/}
@@ -202,22 +157,6 @@ export default function Social() {
                 className="message"
                 placeholder="Message"
                 type="text"
-                style={{
-                  resize: "none",
-                  overflow: "auto",
-                  borderRadius: "5px",
-                  color: "white",
-                  padding: "15px",
-                  outline: "none",
-                  height: "100px",
-                  textDecoration: "none",
-                  width: "400px",
-                  backgroundColor: "#392f9a",
-                  border: "0px",
-                  opacity: "0.8",
-                  fontSize: "18px",
-                  // marginBottom: "65px",
-                }}
               />
 
               {/* 👇 This will display the error message you created for message in (validation.js) and will use the styling in (inlineError.js)*/}

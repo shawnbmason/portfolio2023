@@ -405,4 +405,18 @@ p {
     right: 50%;
     font-size: 52%;
   }
+
+  @media only screen and (max-width: 400px) {
+    .pOne,
+    .pTwo,
+    .pThree,
+    .pFour {
+      width: 200px;
+      height: 150px;
+      position: absolute;
+      left: 28%;
+      right: 50%;
+      font-size: 52%;
+    }
+  }
 }

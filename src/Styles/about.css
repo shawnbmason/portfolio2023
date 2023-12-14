@@ -234,4 +234,18 @@
     -moz-animation: slideInAbout 2s forwards;
     animation: slideInAbout 2s forwards;
   }
+
+  @media screen and (max-width: 800px) {
+    .aboutPicture {
+      width: 250px;
+      height: 250px;
+    }
+
+    .date {
+      position: absolute;
+      left: 15px;
+      top: 5vh;
+      rotate: 0deg;
+    }
+  }
 }
