@@ -28,6 +28,10 @@ body {
   }
 }
 
+.emailAddress {
+  font-size: 10pt;
+}
+
 .socialContainer {
   cursor: none;
   animation: fadeInAnimation ease-in;
@@ -202,6 +206,10 @@ button {
 }
 
 @media only screen and (max-width: 650px) {
+  .emailAddress {
+    font-size: 7pt;
+  }
+
   .socialHeader {
     justify-content: center;
     align-items: center;

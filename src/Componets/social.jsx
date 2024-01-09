@@ -12,7 +12,7 @@ import {
   validateMessage,
 } from "./validation.js";
 import InlineError from "./inlineError.js";
-import { IpAddress } from "../API/API.js";
+import { IpAddress, SendEmail } from "../API/API.js";
 import Loading from "./loading.js";
 import { Helmet } from "react-helmet";
 
@@ -38,7 +38,9 @@ export default function Social() {
   const [messageError, setMessageError] = useState();
   const [loading, setLoading] = useState(true);
   const [ipData, setIpData] = useState();
+  const [buttonLoading, setButtonLoading] = useState(false);
   const [countries, setCountries] = useState();
+  const [send, setSend] = useState();
   // const [ipDataCity, setIpDataCity] = useState();
 
   // 👇 This useEffect is for ********* Validation *********
@@ -56,6 +58,16 @@ export default function Social() {
     validatePhone({ phone, setPhoneError });
     validateMessage({ message, setMessageError });
   }, [fullName, email, phone, message]);
+
+  // 👇 This will stop user from going any further until all forms are filled out
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (!fullNameError && !emailError && !phoneError && !messageError) {
+      SendEmail({ fullName, email, phone, message, setSend });
+    }
+  };
+
+  console.log(send);
 
   console.log(ipData);
   return (
@@ -97,88 +109,96 @@ export default function Social() {
 
               <div style={{ display: "grid" }}>
                 <h1 style={{ opacity: "50%", margin: "0px" }}>Email:</h1>
-                <h1 style={{ margin: "0px" }}>s.mason1993@yahoo.com</h1>
+                <h1 className="emailAddress" style={{ margin: "0px" }}>
+                  shawnsdevelpoeremail@gmail.com
+                </h1>
               </div>
             </div>
-            <div>
-              <input
-                // 👇 reference to the constructor up above.
-                value={fullName}
-                // 👇 checking if name is valid if not through an error (check validation.js)
-                onChange={(e) => setFullName(e.target.value)}
-                type="text"
-                className="name"
-                placeholder="Name"
-              />
 
-              {/* 👇 This will display the error message you created for full name in (validation.js) and will use the styling in (inlineError.js)*/}
-              {fullNameError && <InlineError error={fullNameError} />}
-            </div>
+            <form onSubmit={submitHandler}>
+              <div>
+                <input
+                  // 👇 reference to the constructor up above.
+                  value={fullName}
+                  // 👇 checking if name is valid if not through an error (check validation.js)
+                  onChange={(e) => setFullName(e.target.value)}
+                  type="text"
+                  className="name"
+                  placeholder="Name"
+                />
 
-            <div>
-              <input
-                required
-                // 👇 reference to the constructor up above.
-                value={email}
-                // 👇 checking if email is valid if not through an error (check validation.js)
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                className="email"
-                placeholder="Email"
-              />
+                {/* 👇 This will display the error message you created for full name in (validation.js) and will use the styling in (inlineError.js)*/}
+                {fullNameError && <InlineError error={fullNameError} />}
+              </div>
 
-              {/* 👇 This will display the error message you created for email in (validation.js) and will use the styling in (inlineError.js)*/}
-              {emailError && <InlineError error={emailError} />}
-            </div>
+              <div style={{ paddingTop: "15px" }}>
+                <input
+                  required
+                  // 👇 reference to the constructor up above.
+                  value={email}
+                  // 👇 checking if email is valid if not through an error (check validation.js)
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="email"
+                  className="email"
+                  placeholder="Email"
+                />
 
-            <div>
-              <input
-                required
-                // 👇 reference to the constructor up above.
-                value={phone}
-                // 👇 checking if the phone number is valid if not through an error (check validation.js)
-                onChange={(e) => setPhone(e.target.value)}
-                type="tel"
-                className="phone"
-                placeholder="Phone number"
-              />
+                {/* 👇 This will display the error message you created for email in (validation.js) and will use the styling in (inlineError.js)*/}
+                {emailError && <InlineError error={emailError} />}
+              </div>
 
-              {/* 👇 This will display the error message you created for phone number in (validation.js) and will use the styling in (inlineError.js)*/}
-              {phoneError && <InlineError error={phoneError} />}
-            </div>
+              <div style={{ paddingTop: "15px" }}>
+                <input
+                  required
+                  // 👇 reference to the constructor up above.
+                  value={phone}
+                  // 👇 checking if the phone number is valid if not through an error (check validation.js)
+                  onChange={(e) => setPhone(e.target.value)}
+                  type="tel"
+                  className="phone"
+                  placeholder="Phone number"
+                />
 
-            <div>
-              <textarea
-                required
-                // 👇 reference to the constructor up above.
-                value={message}
-                // 👇 checking if message is valid if not through an error (check validation.js)
-                onChange={(e) => setMessage(e.target.value)}
-                className="message"
-                placeholder="Message"
-                type="text"
-              />
+                {/* 👇 This will display the error message you created for phone number in (validation.js) and will use the styling in (inlineError.js)*/}
+                {phoneError && <InlineError error={phoneError} />}
+              </div>
 
-              {/* 👇 This will display the error message you created for message in (validation.js) and will use the styling in (inlineError.js)*/}
-              {messageError && <InlineError error={messageError} />}
-            </div>
+              <div style={{ paddingTop: "15px" }}>
+                <textarea
+                  required
+                  // 👇 reference to the constructor up above.
+                  value={message}
+                  // 👇 checking if message is valid if not through an error (check validation.js)
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="message"
+                  placeholder="Message"
+                  type="text"
+                />
 
-            <button
-              className="sendMessageButton"
-              onMouseEnter={() =>
-                setBgColor(
-                  "linear-gradient(45deg, #d8277d 50%, #27d882 50%, #12673e 100%)"
-                )
-              }
-              onMouseLeave={() =>
-                setBgColor(
-                  "linear-gradient(45deg, #27d882 50%, #d8277d 50%, #b42068 100%)"
-                )
-              }
-            >
-              Send!
-            </button>
+                {/* 👇 This will display the error message you created for message in (validation.js) and will use the styling in (inlineError.js)*/}
+                {messageError && <InlineError error={messageError} />}
+              </div>
+
+              <button
+                className="sendMessageButton"
+                type="submit"
+
+                // onMouseEnter={() =>
+                //   setBgColor(
+                //     "linear-gradient(45deg, #d8277d 50%, #27d882 50%, #12673e 100%)"
+                //   )
+                // }
+                // onMouseLeave={() =>
+                //   setBgColor(
+                //     "linear-gradient(45deg, #27d882 50%, #d8277d 50%, #b42068 100%)"
+                //   )
+                // }
+              >
+                Send!
+              </button>
+            </form>
           </div>
+
           <Link className="nextArrowSocial" to="/projects">
             <FontAwesomeIcon icon={faArrowLeft} />
           </Link>
