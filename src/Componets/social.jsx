@@ -38,10 +38,10 @@ export default function Social() {
   const [messageError, setMessageError] = useState();
   const [loading, setLoading] = useState(true);
   const [ipData, setIpData] = useState();
-  const [buttonLoading, setButtonLoading] = useState(false);
+  // const [buttonLoading, setButtonLoading] = useState(false);
   const [countries, setCountries] = useState();
   const [send, setSend] = useState();
-  // const [ipDataCity, setIpDataCity] = useState();
+  const [ipDataCity, setIpDataCity] = useState();
 
   // 👇 This useEffect is for ********* Validation *********
 
@@ -70,6 +70,7 @@ export default function Social() {
   console.log(send);
 
   console.log(ipData);
+
   return (
     <div className="socialContainer" style={socialBackground}>
       {loading ? (
@@ -96,7 +97,7 @@ export default function Social() {
               We detected that you are currently in{" "}
               {/* 👇 This checks the API of the person on the sit and will display it (check API.js) */}
               <span style={{ color: "cornflowerblue", fontWeight: "bolder" }}>
-                {/* ({ipData}, {ipDataCity}) */}({ipData})
+                ({ipData && ipData})
               </span>
             </h2>
             <div className="contactInfo">
