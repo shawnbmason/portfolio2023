@@ -204,21 +204,34 @@ export default function Main() {
         <title>Home - Shawn B. Mason, Developer</title>
       </Helmet>
 
-      <div
-        className="navbarMain1"
-        style={{
-          backgroundColor: "#07041a",
-          borderRight: "1px dashed gray",
-          height: "98vh",
-          width: "350px",
-          position: "absolute",
-          left: "0px",
-          zIndex: "1",
-          paddingLeft: "55px",
-          paddingTop: "10px",
-          color: "white",
-        }}
-      >
+      <div className="mainHeader">
+        <h1 className="shawn">SHAWN</h1>
+        <h1 className="mason">MASON</h1>
+        {/* <a href="https://tailwindcss.com/"> */}
+        <Link to="/oh">
+          <p
+            className="oh"
+            style={{
+              cursor: "help",
+              position: "absolute",
+              right: "135px",
+              bottom: "60px",
+              color: "white",
+              opacity: "50%",
+              fontSize: "5px",
+              width: "15px",
+              display: "flex",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            Oh what's this...
+          </p>
+        </Link>
+        {/* </a> */}
+      </div>
+
+      <div className="navbarMain1">
         {" "}
         <h1>Pick Your Weapon</h1>
         <div
@@ -259,25 +272,13 @@ export default function Main() {
             Contact Me!
           </Link>
         </div>
-        <div
-          style={{
-            position: "absolute",
-            top: "275px",
-            bottom: "150px",
-          }}
-        >
+        <div className="contactInfoMain">
           <p style={{ paddingBottom: "15px", paddingTop: "60px" }}>
             +1(513)602-0443
           </p>
-          <p>s.mason1993@yahoo.com</p>
+          <p>shawnsdeveloperemail@gmail.com</p>
         </div>
-        <div
-          className="socialMediaIcons"
-          style={{
-            position: "absolute",
-            bottom: "55px",
-          }}
-        >
+        <div className="socialMediaIcons">
           <a href="https://github.com/shawnbmason" className="github">
             <FontAwesomeIcon
               icon={faGithub}
@@ -317,70 +318,7 @@ export default function Main() {
         ></div>
       </div>
 
-      <div className="mainHeader" style={{ left: "43%", textAlign: "start" }}>
-        <h1
-          className="shawn"
-          style={{
-            fontSize: "130px",
-            fontWeight: "bolder",
-            color: "white",
-            margin: "0px",
-            height: "98px",
-          }}
-        >
-          SHAWN
-        </h1>
-        <h1
-          className="mason"
-          style={{
-            fontSize: "130px",
-            fontWeight: "bolder",
-            color: "white",
-            opacity: "50%",
-            margin: "0px",
-            paddingLeft: "65px",
-          }}
-        >
-          MASON
-        </h1>
-        {/* <a href="https://tailwindcss.com/"> */}
-        <Link to="/oh">
-          <p
-            className="oh"
-            style={{
-              cursor: "help",
-              position: "absolute",
-              right: "135px",
-              bottom: "60px",
-              color: "white",
-              opacity: "50%",
-              fontSize: "5px",
-              width: "15px",
-              display: "flex",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            Oh what's this...
-          </p>
-        </Link>
-        {/* </a> */}
-      </div>
-      <div
-        className="logo"
-        style={{
-          display: "flex",
-          margin: "0px",
-          fontSize: "40px",
-          color: "#190f5e",
-          fontFamily: "Croissant One",
-          fontWeight: "bolder",
-          position: "absolute",
-          top: "15px",
-          right: "100px",
-          opacity: "20%",
-        }}
-      >
+      <div className="logo">
         <p>S</p>
         <p
           style={{
@@ -395,19 +333,7 @@ export default function Main() {
         <p style={{ position: "absolute", top: "15px", left: "20px" }}>M</p>
       </div>
 
-      <div
-        className="circle"
-        style={{
-          position: "absolute",
-          top: "45px",
-          right: "50px",
-          border: "solid 3px #190f5e",
-          height: "72px",
-          width: "72px",
-          opacity: "20%",
-          borderRadius: "50px",
-        }}
-      ></div>
+      <div className="circle"></div>
 
       <div className="skills">
         <p

@@ -28,6 +28,10 @@ body {
   }
 }
 
+.emailAddress {
+  font-size: 10pt;
+}
+
 .socialContainer {
   cursor: none;
   animation: fadeInAnimation ease-in;
@@ -40,6 +44,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
 .nextArrowSocial {
@@ -147,4 +152,104 @@ button {
 
 .ohSocialPage:hover {
   cursor: help;
+}
+
+.contactInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8px;
+  margin: 10px;
+}
+
+.email,
+.phone,
+.name {
+  border-radius: 5px;
+  text-align: left;
+  outline: none;
+  color: white;
+  height: 40px;
+  width: 400px;
+  background-color: #392f9a;
+  border: 0px;
+  opacity: 0.8;
+  padding: 1px 15px 1px 15px;
+  font-size: 18px;
+}
+
+.message {
+  resize: none;
+  overflow: auto;
+  border-radius: 5px;
+  color: white;
+  padding: 15px;
+  outline: none;
+  height: 100px;
+  text-decoration: none;
+  width: 400px;
+  background-color: #392f9a;
+  border: 0px;
+  opacity: 0.8;
+  font-size: 18px;
+}
+
+.socialHeader h2 {
+  padding: 0px;
+  margin: 0px;
+  font-size: 15px;
+}
+
+.socialHeader .contactMe {
+  opacity: 0.8;
+  margin: 0px;
+  padding-top: 20px;
+}
+
+@media only screen and (max-width: 650px) {
+  .emailAddress {
+    font-size: 7pt;
+  }
+
+  .socialHeader {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    height: 450px;
+  }
+
+  .socialContainer {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .socialHeader h2 {
+    position: absolute;
+    right: 15px;
+    top: 65px;
+    width: 250px;
+    font-size: 10px;
+  }
+
+  .contactInfo {
+    font-size: 6px;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .message,
+  .email,
+  .phone,
+  .name {
+    width: 250px;
+  }
+
+  .contactMe {
+    padding-top: 0px;
+  }
+
+  .nextArrowSocial {
+    visibility: hidden;
+  }
 }

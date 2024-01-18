@@ -39,36 +39,34 @@ export default function About() {
             <p
               style={{
                 fontSize: "2vh",
-                lineHeight: "20px",
                 letterSpacing: "2px",
                 fontFamily: "Rubik, sans-serif",
               }}
             >
-              My passon for building things, tearing things apart to see how it
-              all works, and putting it back together can go all the way back to
-              when I was a child. Weather it would be something that broke in my
-              room or in my profession job I wanted to know how it worked. So
-              you can say I have been on the "building my own world" from the
-              start. Why coding? This is where I feel in love with coding.
-              Creating my own universe on my computer. Creating new ideas that I
-              couldn't get out of my head fast enough.
+              My passion for building things, tearing things apart to see how it
+              all works, and putting things back together can go back to when I
+              was a child. Whether it would be something in my room or my
+              professional job, I wanted to know how it worked. So you can say I
+              have been "building my world" from the start. Why coding? Because
+              I finally get the chance to build cool shit. I fell in love with
+              coding. I was creating my universe on my computer and creating new
+              ideas that I couldn't get out of my head fast enough.
             </p>
 
             <p
               style={{
                 fontSize: "2vh",
-                lineHeight: "20px",
                 letterSpacing: "2px",
                 fontFamily: "Rubik, sans-serif",
               }}
             >
-              Outside of the office and away from the computer, I'm commited to
-              my two little guys (cats) Ash and Hiro. We spend a lot of times
-              outside on the balcony looking at what nature has to bring. If I'm
-              not with my two little guys you can most likly find me training
-              for my next triatholon, rock climbing, or exploring the city to
-              find good food. Contact me over Linked for networking,
-              collaboration, a quick talk, and more!
+              Outside the office and away from the computer, I'm committed to my
+              two little guys (cats), Ash and Hiro. We spend much time outside
+              on the balcony, looking at what nature has to bring. If I'm not
+              with my two little guys, you can find me training for my next
+              triathlon, rock climbing, or exploring the city to find good food.
+              Contact me over Linked for networking, collaboration, a quick
+              talk, and more!
             </p>
           </div>
         </div>

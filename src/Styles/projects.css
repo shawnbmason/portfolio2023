@@ -96,6 +96,32 @@ body {
   text-align: start;
   font-size: 55px;
 }
+.projectOneLinks,
+.projectTwoLinks,
+.projectThreeLinks,
+.projectFourLinks {
+  display: flex;
+  padding-top: 15px;
+  justify-content: center;
+  color: #fbefed;
+  text-decoration: none;
+}
+
+.projectOneLinks a,
+.projectTwoLinks a,
+.projectThreeLinks a,
+.projectFourLinks a {
+  opacity: 100%;
+  color: #fbefed;
+  text-decoration: none;
+}
+
+.projectOneLinks a:hover,
+.projectTwoLinks a:hover,
+.projectThreeLinks a:hover,
+.projectFourLinks a:hover {
+  opacity: 50%;
+}
 
 .projectOne,
 .projectTwo,
@@ -164,8 +190,11 @@ body {
   filter: blur(1px);
 }
 
+.backstage-talks {
+  grid-area: a;
+}
+
 .projectOne {
-  cursor: pointer;
   grid-area: a;
   background-image: url(/pictures/backstage_talk_pro.png);
   transition: 0.3s ease-in;
@@ -203,8 +232,11 @@ p {
   animation: slideIn 1s forwards;
 }
 
+.monogram {
+  grid-area: b;
+}
+
 .projectTwo {
-  cursor: pointer;
   grid-area: b;
   background-image: url(/pictures/monogram_pro.png);
   transition: 0.3s ease-in;
@@ -237,8 +269,11 @@ p {
   animation: slideIn 1s forwards;
 }
 
+.chill {
+  grid-area: c;
+}
+
 .projectThree {
-  cursor: pointer;
   grid-area: c;
   background-image: url(/pictures/chill_pro.png);
   transition: 0.3s ease-in;
@@ -271,15 +306,18 @@ p {
   animation: slideIn 1s forwards;
 }
 
-.projectFour {
-  cursor: pointer;
+.food {
   grid-area: d;
-  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg-new.cgtrader.com%2Fitems%2F160480%2Fpaint_splatter_3d_model_5d2328a0-9f14-4a99-b12d-de28a5e6f3ce.jpg&f=1&nofb=1&ipt=4da2d3bbba8a7adb11273de82207c35d0ba7b5db442b8cd4ff27675da586cdb9&ipo=images");
+}
+
+.projectFour {
+  grid-area: d;
+  background-image: url(/pictures/streaming-project.png);
   transition: 0.3s ease-in;
   width: 350px;
   height: 250px;
   position: relative;
-  background-size: 350px, 250px;
+  background-size: cover;
   z-index: 3;
   -webkit-animation: slideIn 1s forwards;
   -moz-animation: slideIn 1s forwards;
@@ -304,6 +342,14 @@ p {
   -webkit-animation: slideIn 1s forwards;
   -moz-animation: slideIn 1s forwards;
   animation: slideIn 1s forwards;
+}
+
+.link {
+  padding-left: 5px;
+}
+
+.code {
+  padding-left: 55px;
 }
 
 /* ---------------------------------------------------------------------------------------------------------- */
@@ -404,5 +450,37 @@ p {
     left: 28%;
     right: 50%;
     font-size: 52%;
+  }
+
+  @media only screen and (min-width: 400px) {
+    .pOne,
+    .pTwo,
+    .pThree,
+    .pFour {
+      width: 200px;
+      height: 150px;
+      position: absolute;
+      left: 28%;
+      right: 50%;
+      font-size: 52%;
+    }
+  }
+
+  @media only screen and (min-width: 350px) {
+    .pOne,
+    .pTwo,
+    .pThree,
+    .pFour {
+      width: 200px;
+      height: 150px;
+      position: absolute;
+      right: 50%;
+      font-size: 52%;
+    }
+
+    /* .projectOneLinks,
+    .projectOne {
+      margin-left: 140px;
+    } */
   }
 }
