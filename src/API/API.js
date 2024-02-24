@@ -22,27 +22,3 @@ export const IpAddress = async ({
     setLoading(false);
   }
 };
-
-//  ******* Send Email *******
-export const SendEmail = async ({
-  fullName,
-  email,
-  phone,
-  message,
-  setSend,
-}) => {
-  try {
-    const datas = { fullName, email, phone, message };
-    let res = await axios.post(
-      // 👇 check out (.env) folder to see where I got this information
-      `http://localhost:5000/send`,
-      datas
-    );
-    if (res) {
-      setSend(res.data);
-      //   setIpDataCity(res.data.city);
-    }
-  } catch (error) {
-    alert("error");
-  }
-};
