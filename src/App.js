@@ -4,8 +4,9 @@ import About from "./Componets/about.jsx";
 import Projects from "./Componets/projects.jsx";
 import Social from "./Componets/social.jsx";
 import Oh from "./Componets/oh.jsx";
+import Send from "./Componets/send.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/social" element={<Social />} />
           <Route path="/oh" element={<Oh />} />
+          <Route path="/send" element={<Send />} />
         </Routes>
       </BrowserRouter>
     </div>

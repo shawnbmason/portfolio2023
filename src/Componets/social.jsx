@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Navbar from "./navbar.jsx";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import AnimatedCursor from "react-animated-cursor";
 import {
   validateFullName,
@@ -12,9 +12,15 @@ import {
   validateMessage,
 } from "./validation.js";
 import InlineError from "./inlineError.js";
-import { IpAddress, SendEmail } from "../API/API.js";
+import { IpAddress } from "../API/API.js";
 import Loading from "./loading.js";
 import { Helmet } from "react-helmet";
+import emailjs from "@emailjs/browser";
+// import axios from "axios";
+
+const Result = () => {
+  return <p>Your email was sent successfully! Thank you for reaching out.</p>;
+};
 
 export default function Social() {
   const [bgColor, setBgColor] = useState(
@@ -60,16 +66,48 @@ export default function Social() {
   }, [fullName, email, phone, message]);
 
   // 👇 This will stop user from going any further until all forms are filled out
-  const submitHandler = (e) => {
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   if (!fullNameError && !emailError && !phoneError && !messageError) {
+  //     SendEmail({ fullName, email, phone, message, setSend });
+  //   }
+  // };
+
+  // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  // 👇 This is from email.js sever to send email
+  const [result, showResult] = useState(false);
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
     e.preventDefault();
-    if (!fullNameError && !emailError && !phoneError && !messageError) {
-      SendEmail({ fullName, email, phone, message, setSend });
-    }
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        form.current,
+        {
+          publicKey: process.env.REACT_APP_PUBLIC_KEY,
+        }
+      )
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.text);
+        },
+        (error) => {
+          alert("FAILED...", error.text);
+          console.log("FAILED...", error.text);
+          showResult(false);
+        }
+      );
+    setFullName(e.target.reset());
+    setEmail(e.target.reset());
+    setPhone(e.target.reset());
+    setMessage("");
+
+    showResult(true);
   };
-
-  console.log(send);
-
-  console.log(ipData);
+  // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   return (
     <div className="socialContainer" style={socialBackground}>
@@ -116,11 +154,13 @@ export default function Social() {
               </div>
             </div>
 
-            <form onSubmit={submitHandler}>
+            <form ref={form} onSubmit={sendEmail}>
+              {/* <form onSubmit="/setSend" method="post"> */}
               <div>
                 <input
                   // 👇 reference to the constructor up above.
                   value={fullName}
+                  name="fullName"
                   // 👇 checking if name is valid if not through an error (check validation.js)
                   onChange={(e) => setFullName(e.target.value)}
                   type="text"
@@ -137,6 +177,7 @@ export default function Social() {
                   required
                   // 👇 reference to the constructor up above.
                   value={email}
+                  name="email"
                   // 👇 checking if email is valid if not through an error (check validation.js)
                   onChange={(e) => setEmail(e.target.value)}
                   type="email"
@@ -153,6 +194,7 @@ export default function Social() {
                   required
                   // 👇 reference to the constructor up above.
                   value={phone}
+                  name="phone"
                   // 👇 checking if the phone number is valid if not through an error (check validation.js)
                   onChange={(e) => setPhone(e.target.value)}
                   type="tel"
@@ -166,9 +208,11 @@ export default function Social() {
 
               <div style={{ paddingTop: "15px" }}>
                 <textarea
+                  id="message"
                   required
                   // 👇 reference to the constructor up above.
                   value={message}
+                  name="message"
                   // 👇 checking if message is valid if not through an error (check validation.js)
                   onChange={(e) => setMessage(e.target.value)}
                   className="message"
@@ -198,6 +242,7 @@ export default function Social() {
                 Send!
               </button>
             </form>
+            <div className="row">{result ? <Result /> : null}</div>
           </div>
 
           <Link className="nextArrowSocial" to="/projects">
