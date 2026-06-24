@@ -1,255 +1,453 @@
-body {
-  margin: 0px;
+html,
+body,
+#root {
   width: 100%;
+  min-height: 100%;
+  margin: 0;
 }
 
-@-webkit-keyframes slideIn {
-  0% {
-    transform: translateX(900px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@-moz-keyframes slideIn {
-  0% {
-    transform: translateX(900px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes slideIn {
-  0% {
-    transform: translateX(900px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+* {
+  box-sizing: border-box;
 }
 
-.emailAddress {
-  font-size: 10pt;
+body {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: #07041a;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
 }
 
 .socialContainer {
-  cursor: none;
-  animation: fadeInAnimation ease-in;
-  animation-duration: 1s;
-  color: whitesmoke;
-  width: 100%;
-  height: 100vh;
-  margin: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
-  overflow: hidden;
+  width: 100vw;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  color: #fbefed;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 78% 26%, rgba(255, 91, 61, 0.42), transparent 28%),
+    radial-gradient(circle at 18% 78%, rgba(56, 252, 208, 0.18), transparent 34%),
+    linear-gradient(135deg, #07041a 0%, #190f5e 48%, #cf4130 100%);
 }
 
-.nextArrowSocial {
+.socialGlow {
   position: absolute;
-  left: 0px;
+  border-radius: 999px;
+  filter: blur(20px);
+  z-index: -2;
+}
+
+.socialGlowOne {
+  width: 400px;
+  height: 400px;
+  top: -110px;
+  right: 12%;
+  background: rgba(255, 95, 73, 0.36);
+}
+
+.socialGlowTwo {
+  width: 340px;
+  height: 340px;
+  bottom: 4%;
+  left: 12%;
+  background: rgba(56, 252, 208, 0.18);
+}
+
+.socialGrid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.11) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to right, black, transparent 86%);
+}
+
+/* Back Arrow */
+
+.nextArrowSocial {
+  position: fixed;
+  left: 28px;
+  top: 50%;
+  z-index: 10;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
   color: #fbefed;
-  font-size: 50px;
-  margin: 20px;
+  font-size: 30px;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  transition: 0.25s ease;
 }
 
 .nextArrowSocial:hover {
-  position: absolute;
-  left: 0px;
-  color: #fbefed;
-  font-size: 55px;
-  margin: 20px;
+  transform: translateY(-50%) translateX(-5px);
+  background: rgba(255, 255, 255, 0.22);
 }
 
-.socialHeader {
-  justify-content: center;
-  position: absolute;
+/* Layout */
+
+.socialPage {
+  width: min(1180px, calc(100vw - 150px));
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 90px 0;
   display: grid;
-  width: 600px;
-  height: 500px;
-  border-radius: 5px;
-  background-color: #5e54ca;
-  box-shadow: 0 0 1em 2em rgba(0, 0, 0, 0.2);
-  -webkit-animation: slideIn 2s forwards;
-  -moz-animation: slideIn 2s forwards;
-  animation: slideIn 2s forwards;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 42px;
 }
 
-input::placeholder {
-  color: whitesmoke;
-  opacity: 0.5;
+.contactIntro {
+  animation: slideInLeft 0.9s ease forwards;
 }
 
-textarea::placeholder {
-  color: whitesmoke;
-  opacity: 0.5;
-}
-
-.sendMessageButton {
-  margin-bottom: 25px;
-  background-color: cornflowerblue;
-  width: 60px;
-  height: 40px;
+.socialEyebrow {
+  margin: 0 0 10px;
+  color: #38fcd0;
   font-size: 12px;
-  border-radius: 50px;
-  border: 0px;
-  font-weight: bolder;
-  opacity: 100%;
-  letter-spacing: 1px;
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  color: white;
-  transition-duration: 0.5s;
+  letter-spacing: 3px;
   text-transform: uppercase;
 }
 
-.sendMessageButton:hover {
-  position: absolute;
-  transform: scale(1.1);
-  transition-duration: 0.5s;
-  cursor: pointer;
+.contactMe {
+  margin: 0;
+  color: #fbefed;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: 0.9;
+  letter-spacing: -5px;
 }
 
-.name {
-  box-shadow:
-    inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-    0 0 0 2px #5e54ca,
-    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+.socialDescription {
+  max-width: 460px;
+  margin: 24px 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 17px;
+  line-height: 1.7;
 }
 
-.email {
+.detectedLocation {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  padding: 13px 16px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(12px);
+}
+
+.detectedLocation svg,
+.detectedLocation strong {
+  color: #38fcd0;
+}
+
+/* Contact Info */
+
+.contactInfo {
+  display: grid;
+  gap: 14px;
+  max-width: 470px;
+}
+
+.contactInfoCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(22, 16, 68, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.22);
+  transition: 0.25s ease;
+}
+
+.contactInfoCard:hover {
+  transform: translateX(8px);
+  background: rgba(30, 22, 90, 0.9);
+  border-color: rgba(56, 252, 208, 0.32);
+}
+
+.contactInfoCard svg {
+  width: 46px;
+  height: 46px;
+  padding: 13px;
+  border-radius: 16px;
+  color: #38fcd0;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.contactInfoCard span {
+  display: block;
+  margin-bottom: 3px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.contactInfoCard p {
+  margin: 0;
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.emailAddress {
+  word-break: break-word;
+}
+
+/* Form */
+
+.contactForm {
+  position: relative;
+  padding: 34px;
+  display: grid;
+  gap: 17px;
+  border-radius: 34px;
+  background: rgba(22, 16, 68, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   box-shadow:
-    inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-    0 0 0 2px #5e54ca,
-    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    0 30px 100px rgba(0, 0, 0, 0.42),
+    0 0 35px rgba(56, 252, 208, 0.08);
+  backdrop-filter: blur(18px);
+  animation: slideInRight 0.9s ease forwards;
+}
+
+.formGroup {
+  display: grid;
+  gap: 8px;
+}
+
+.formGroup label {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.name,
+.email,
+.phone,
+.message {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  outline: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.12);
+  font-size: 16px;
+  transition: 0.25s ease;
+}
+
+.name,
+.email,
+.phone {
+  height: 52px;
+  border-radius: 17px;
+  padding: 0 17px;
 }
 
 .message {
-  box-shadow:
-    inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-    0 0 0 2px #5e54ca,
-    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  min-height: 145px;
+  resize: vertical;
+  border-radius: 20px;
+  padding: 16px 17px;
+  font-family: inherit;
 }
 
-button {
+.name:focus,
+.email:focus,
+.phone:focus,
+.message:focus {
+  border-color: rgba(56, 252, 208, 0.55);
+  background: rgba(255, 255, 255, 0.13);
   box-shadow:
-    inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-    0 0 0 2px #5e54ca,
-    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    inset 0 0 35px rgba(0, 0, 0, 0.12),
+    0 0 0 4px rgba(56, 252, 208, 0.08);
 }
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Button */
+
+.sendMessageButton {
+  width: 100%;
+  height: 56px;
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 999px;
+  color: #07041a;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: linear-gradient(90deg, #38fcd0, cornflowerblue);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.28),
+    0 0 35px rgba(56, 252, 208, 0.16);
+  transition: 0.25s ease;
+}
+
+.sendMessageButton:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.38),
+    0 0 45px rgba(56, 252, 208, 0.28);
+}
+
+.row {
+  min-height: 24px;
+}
+
+.resultMessage {
+  margin: 0;
+  color: #38fcd0;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Secret Link */
 
 .ohSocialPage {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  font-size: 7px;
-  color: whitesmoke;
-  text-decoration: none;
+  position: fixed;
+  right: 16px;
+  bottom: 12px;
+  z-index: 10;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 8px;
+  transition: 0.25s ease;
 }
 
 .ohSocialPage:hover {
+  color: #38fcd0;
   cursor: help;
 }
 
-.contactInfo {
-  display: flex;
-  justify-content: space-between;
-  font-size: 8px;
-  margin: 10px;
-}
+/* Animations */
 
-.email,
-.phone,
-.name {
-  border-radius: 5px;
-  text-align: left;
-  outline: none;
-  color: white;
-  height: 40px;
-  width: 400px;
-  background-color: #392f9a;
-  border: 0px;
-  opacity: 0.8;
-  padding: 1px 15px 1px 15px;
-  font-size: 18px;
-}
-
-.message {
-  resize: none;
-  overflow: auto;
-  border-radius: 5px;
-  color: white;
-  padding: 15px;
-  outline: none;
-  height: 100px;
-  text-decoration: none;
-  width: 400px;
-  background-color: #392f9a;
-  border: 0px;
-  opacity: 0.8;
-  font-size: 18px;
-}
-
-.socialHeader h2 {
-  padding: 0px;
-  margin: 0px;
-  font-size: 15px;
-}
-
-.socialHeader .contactMe {
-  opacity: 0.8;
-  margin: 0px;
-  padding-top: 20px;
-}
-
-@media only screen and (max-width: 650px) {
-  .emailAddress {
-    font-size: 7pt;
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-80px);
+    opacity: 0;
   }
 
-  .socialHeader {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 300px;
-    height: 450px;
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(80px);
+    opacity: 0;
   }
 
-  .socialContainer {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
+}
 
-  .socialHeader h2 {
-    position: absolute;
-    right: 15px;
-    top: 65px;
-    width: 250px;
-    font-size: 10px;
-  }
+/* Mobile */
 
-  .contactInfo {
-    font-size: 6px;
-    justify-content: center;
-    margin-top: 15px;
-  }
-
-  .message,
-  .email,
-  .phone,
-  .name {
-    width: 250px;
+@media only screen and (max-width: 900px) {
+  .socialPage {
+    width: min(720px, calc(100vw - 36px));
+    min-height: auto;
+    padding: 85px 0 110px;
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .contactMe {
-    padding-top: 0px;
+    font-size: 58px;
+    letter-spacing: -3px;
+  }
+
+  .socialDescription {
+    font-size: 15px;
+  }
+
+  .contactForm {
+    padding: 24px;
+    border-radius: 28px;
   }
 
   .nextArrowSocial {
-    visibility: hidden;
+    top: auto;
+    bottom: 22px;
+    left: 22px;
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .socialPage {
+    width: calc(100vw - 28px);
+    padding-top: 76px;
+  }
+
+  .contactMe {
+    font-size: 48px;
+  }
+
+  .socialDescription {
+    margin: 18px 0;
+    font-size: 14px;
+  }
+
+  .detectedLocation {
+    font-size: 12px;
+  }
+
+  .contactInfoCard {
+    padding: 15px;
+  }
+
+  .contactInfoCard p {
+    font-size: 14px;
+  }
+
+  .contactForm {
+    padding: 20px;
+  }
+
+  .name,
+  .email,
+  .phone {
+    height: 48px;
+  }
+
+  .message {
+    min-height: 125px;
+  }
+
+  .sendMessageButton {
+    height: 52px;
+    font-size: 12px;
   }
 }

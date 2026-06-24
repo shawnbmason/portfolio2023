@@ -1,6 +1,12 @@
 import "../Styles/social.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowLeft,
+  faPaperPlane,
+  faPhone,
+  faEnvelope,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Navbar from "./navbar.jsx";
 import React, { useEffect, useState, useRef } from "react";
@@ -16,46 +22,35 @@ import { IpAddress } from "../API/API.js";
 import Loading from "./loading.js";
 import { Helmet } from "react-helmet";
 import emailjs from "@emailjs/browser";
-// import axios from "axios";
 
 const Result = () => {
-  return <p>Your email was sent successfully! Thank you for reaching out.</p>;
+  return (
+    <p className="resultMessage">
+      Your email was sent successfully! Thank you for reaching out.
+    </p>
+  );
 };
 
 export default function Social() {
-  const [bgColor, setBgColor] = useState(
-    "linear-gradient(45deg, #27d882 50%, #d8277d 50%, #b42068 100%)"
-  );
-
-  const socialBackground = {
-    background: `${bgColor}`,
-    transition: "0.8s ease",
-  };
-
-  // 👇 constructors for email, name, phone number, and message for validation. (check validation.js)
-
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState();
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+
   const [fullNameError, setFullNameError] = useState();
   const [emailError, setEmailError] = useState();
   const [phoneError, setPhoneError] = useState();
   const [messageError, setMessageError] = useState();
+
   const [loading, setLoading] = useState(true);
   const [ipData, setIpData] = useState();
-  // const [buttonLoading, setButtonLoading] = useState(false);
-  const [countries, setCountries] = useState();
-  const [send, setSend] = useState();
-  const [ipDataCity, setIpDataCity] = useState();
+  const [result, showResult] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
-  // 👇 This useEffect is for ********* Validation *********
+  const form = useRef();
 
   useEffect(() => {
-    // 👇 This checks the API of the person on the sit and will display it (check API.js)
-
-    if (!ipData & !countries) {
-      // IpAddress({ setIpData, setIpDataCity, setLoading });
+    if (!ipData) {
       IpAddress({ setIpData, setLoading });
     }
 
@@ -63,24 +58,18 @@ export default function Social() {
     validateEmail({ email, setEmailError });
     validatePhone({ phone, setPhoneError });
     validateMessage({ message, setMessageError });
-  }, [fullName, email, phone, message]);
-
-  // 👇 This will stop user from going any further until all forms are filled out
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   if (!fullNameError && !emailError && !phoneError && !messageError) {
-  //     SendEmail({ fullName, email, phone, message, setSend });
-  //   }
-  // };
-
-  // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  // 👇 This is from email.js sever to send email
-  const [result, showResult] = useState(false);
-
-  const form = useRef();
+  }, [fullName, email, phone, message, ipData]);
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    if (fullNameError || emailError || phoneError || messageError) {
+      showResult(false);
+      return;
+    }
+
+    setIsSending(true);
+
     emailjs
       .sendForm(
         process.env.REACT_APP_SERVICE_ID,
@@ -91,26 +80,25 @@ export default function Social() {
         }
       )
       .then(
-        (result) => {
-          console.log("SUCCESS!", result.text);
+        () => {
+          setFullName("");
+          setEmail("");
+          setPhone("");
+          setMessage("");
+          showResult(true);
         },
         (error) => {
-          alert("FAILED...", error.text);
-          console.log("FAILED...", error.text);
+          alert("FAILED... " + error.text);
           showResult(false);
         }
-      );
-    setFullName(e.target.reset());
-    setEmail(e.target.reset());
-    setPhone(e.target.reset());
-    setMessage("");
-
-    showResult(true);
+      )
+      .finally(() => {
+        setIsSending(false);
+      });
   };
-  // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   return (
-    <div className="socialContainer" style={socialBackground}>
+    <main className="socialContainer">
       {loading ? (
         <Loading />
       ) : (
@@ -122,137 +110,131 @@ export default function Social() {
 
           <AnimatedCursor
             innerSize={8}
-            outerSize={8}
+            outerSize={30}
             color="255, 255, 255"
-            outerAlpha={0.2}
+            outerAlpha={0.18}
             innerScale={0.7}
-            outerScale={5}
+            outerScale={2.8}
           />
+
+          <div className="socialGlow socialGlowOne"></div>
+          <div className="socialGlow socialGlowTwo"></div>
+          <div className="socialGrid"></div>
+
           <Navbar />
-          <div className="socialHeader">
-            <h1 className="contactMe">Contact Me</h1>
-            <h2>
-              We detected that you are currently in{" "}
-              {/* 👇 This checks the API of the person on the sit and will display it (check API.js) */}
-              <span style={{ color: "cornflowerblue", fontWeight: "bolder" }}>
-                ({ipData && ipData})
-              </span>
-            </h2>
-            <div className="contactInfo">
-              <div style={{ display: "grid" }}>
-                <h1 style={{ opacity: "50%", margin: "0px" }}>Phone:</h1>
-                <h1 style={{ margin: "0px", paddingRight: "10px" }}>
-                  +1(513)-602-0443
-                </h1>
+
+          <Link className="nextArrowSocial" to="/projects">
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </Link>
+
+          <section className="socialPage">
+            <div className="contactIntro">
+              <p className="socialEyebrow">Let’s Build Something</p>
+              <h1 className="contactMe">Contact Me</h1>
+
+              <p className="socialDescription">
+                Have an idea, opportunity, or project in mind? Send me a message
+                and I’ll get back to you.
+              </p>
+
+              <div className="detectedLocation">
+                <FontAwesomeIcon icon={faLocationDot} />
+                <span>
+                  Detected location: <strong>{ipData && ipData}</strong>
+                </span>
               </div>
 
-              <div style={{ display: "grid" }}>
-                <h1 style={{ opacity: "50%", margin: "0px" }}>Email:</h1>
-                <h1 className="emailAddress" style={{ margin: "0px" }}>
-                  shawnsdevelpoeremail@gmail.com
-                </h1>
+              <div className="contactInfo">
+                <div className="contactInfoCard">
+                  <FontAwesomeIcon icon={faPhone} />
+                  <div>
+                    <span>Phone</span>
+                    <p>+1 (513) 602-0443</p>
+                  </div>
+                </div>
+
+                <div className="contactInfoCard">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                  <div>
+                    <span>Email</span>
+                    <p className="emailAddress">
+                      shawnsdeveloperemail@gmail.com
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <form ref={form} onSubmit={sendEmail}>
-              {/* <form onSubmit="/setSend" method="post"> */}
-              <div>
+            <form ref={form} onSubmit={sendEmail} className="contactForm">
+              <div className="formGroup">
+                <label>Name</label>
                 <input
-                  // 👇 reference to the constructor up above.
                   value={fullName}
                   name="fullName"
-                  // 👇 checking if name is valid if not through an error (check validation.js)
                   onChange={(e) => setFullName(e.target.value)}
                   type="text"
                   className="name"
-                  placeholder="Name"
+                  placeholder="Your name"
                 />
-
-                {/* 👇 This will display the error message you created for full name in (validation.js) and will use the styling in (inlineError.js)*/}
                 {fullNameError && <InlineError error={fullNameError} />}
               </div>
 
-              <div style={{ paddingTop: "15px" }}>
+              <div className="formGroup">
+                <label>Email</label>
                 <input
                   required
-                  // 👇 reference to the constructor up above.
                   value={email}
                   name="email"
-                  // 👇 checking if email is valid if not through an error (check validation.js)
                   onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   className="email"
-                  placeholder="Email"
+                  placeholder="your@email.com"
                 />
-
-                {/* 👇 This will display the error message you created for email in (validation.js) and will use the styling in (inlineError.js)*/}
                 {emailError && <InlineError error={emailError} />}
               </div>
 
-              <div style={{ paddingTop: "15px" }}>
+              <div className="formGroup">
+                <label>Phone</label>
                 <input
                   required
-                  // 👇 reference to the constructor up above.
                   value={phone}
                   name="phone"
-                  // 👇 checking if the phone number is valid if not through an error (check validation.js)
                   onChange={(e) => setPhone(e.target.value)}
                   type="tel"
                   className="phone"
                   placeholder="Phone number"
                 />
-
-                {/* 👇 This will display the error message you created for phone number in (validation.js) and will use the styling in (inlineError.js)*/}
                 {phoneError && <InlineError error={phoneError} />}
               </div>
 
-              <div style={{ paddingTop: "15px" }}>
+              <div className="formGroup">
+                <label>Message</label>
                 <textarea
                   id="message"
                   required
-                  // 👇 reference to the constructor up above.
                   value={message}
                   name="message"
-                  // 👇 checking if message is valid if not through an error (check validation.js)
                   onChange={(e) => setMessage(e.target.value)}
                   className="message"
-                  placeholder="Message"
-                  type="text"
+                  placeholder="Tell me about your project..."
                 />
-
-                {/* 👇 This will display the error message you created for message in (validation.js) and will use the styling in (inlineError.js)*/}
                 {messageError && <InlineError error={messageError} />}
               </div>
 
-              <button
-                className="sendMessageButton"
-                type="submit"
-
-                // onMouseEnter={() =>
-                //   setBgColor(
-                //     "linear-gradient(45deg, #d8277d 50%, #27d882 50%, #12673e 100%)"
-                //   )
-                // }
-                // onMouseLeave={() =>
-                //   setBgColor(
-                //     "linear-gradient(45deg, #27d882 50%, #d8277d 50%, #b42068 100%)"
-                //   )
-                // }
-              >
-                Send!
+              <button className="sendMessageButton" type="submit">
+                <span>{isSending ? "Sending..." : "Send Message"}</span>
+                <FontAwesomeIcon icon={faPaperPlane} />
               </button>
-            </form>
-            <div className="row">{result ? <Result /> : null}</div>
-          </div>
 
-          <Link className="nextArrowSocial" to="/projects">
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </Link>
+              <div className="row">{result ? <Result /> : null}</div>
+            </form>
+          </section>
+
           <Link to="/oh" className="ohSocialPage">
-            <p>Oh whats this?</p>
+            Oh what's this?
           </Link>
         </>
       )}
-    </div>
+    </main>
   );
 }
